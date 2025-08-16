@@ -87,29 +87,56 @@ export default function SearchPage() {
           </div>
         </div>
 
-        {/* Features */}
+        {/* Features - Now Clickable */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow p-6 text-center">
+          <button
+            onClick={() => {
+              const input = document.querySelector('input') as HTMLInputElement
+              if (input) {
+                input.focus()
+                input.scrollIntoView({ behavior: 'smooth' })
+              }
+            }}
+            className="bg-white rounded-lg shadow p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer"
+          >
             <div className="text-3xl mb-3">🔍</div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Smart Search</h3>
             <p className="text-gray-600 text-sm">
               Auto-complete search with real-time suggestions from Companies House database
             </p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-6 text-center">
-            <div className="text-3xl mb-3">🤖</div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">AI Analysis</h3>
-            <p className="text-gray-600 text-sm">
-              Get instant risk assessments and business insights powered by AI
-            </p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-6 text-center">
+            <div className="mt-3 text-blue-600 text-sm font-medium">Click to search</div>
+          </button>
+          
+          <Link href="/api-test" className="block">
+            <div className="bg-white rounded-lg shadow p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer h-full">
+              <div className="text-3xl mb-3">🤖</div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">AI Analysis</h3>
+              <p className="text-gray-600 text-sm">
+                Get instant risk assessments and business insights powered by AI
+              </p>
+              <div className="mt-3 text-green-600 text-sm font-medium">Try API test →</div>
+            </div>
+          </Link>
+          
+          <button
+            onClick={() => {
+              const input = document.querySelector('input') as HTMLInputElement
+              if (input) {
+                input.value = 'Apple UK'
+                input.dispatchEvent(new Event('input', { bubbles: true }))
+                input.focus()
+                input.scrollIntoView({ behavior: 'smooth' })
+              }
+            }}
+            className="bg-white rounded-lg shadow p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer"
+          >
             <div className="text-3xl mb-3">📊</div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Detailed Reports</h3>
             <p className="text-gray-600 text-sm">
               Comprehensive company profiles with officers, ownership, and compliance data
             </p>
-          </div>
+            <div className="mt-3 text-purple-600 text-sm font-medium">Demo with Apple UK →</div>
+          </button>
         </div>
 
         {/* Navigation */}

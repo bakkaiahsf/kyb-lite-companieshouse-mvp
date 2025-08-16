@@ -219,12 +219,38 @@ export default function CompanySearch({
 
       {/* Analyze Button */}
       {showAnalyzeButton && selectedCompany && (
-        <div className="mt-4 text-center">
+        <div className="mt-6 text-center">
           <button
             onClick={handleAnalyze}
-            className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+            className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg text-lg"
           >
             🔍 Analyze {selectedCompany.title}
+          </button>
+          <p className="mt-2 text-sm text-gray-600">
+            Get AI-powered risk analysis and business insights
+          </p>
+        </div>
+      )}
+
+      {/* Call to Action when no company selected */}
+      {showAnalyzeButton && !selectedCompany && query.length >= 2 && (
+        <div className="mt-6 text-center">
+          <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <p className="text-blue-700 font-medium">
+              👆 Select a company from the dropdown to analyze
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Manual Search Button for when auto-complete doesn't work */}
+      {query.length >= 2 && !loading && results.length === 0 && !showDropdown && (
+        <div className="mt-4 text-center">
+          <button
+            onClick={() => searchCompanies(query)}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200"
+          >
+            🔍 Search for &quot;{query}&quot;
           </button>
         </div>
       )}
