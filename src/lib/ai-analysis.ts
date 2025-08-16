@@ -13,9 +13,9 @@ export class AIAnalysisService {
   private apiKey: string
 
   constructor() {
-    this.apiKey = process.env.OPENAI_API_KEY || ''
+    this.apiKey = process.env.OPEN_API_KEY || ''
     if (!this.apiKey) {
-      throw new Error('OPENAI_API_KEY environment variable is required')
+      throw new Error('OPEN_API_KEY environment variable is required')
     }
   }
 
