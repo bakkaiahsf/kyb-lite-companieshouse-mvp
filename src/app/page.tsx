@@ -50,24 +50,42 @@ export default function HomePage() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <a 
+              href="/landing" 
+              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-medium py-4 px-6 rounded-lg transition-all duration-200 text-center"
+            >
+              🚀 Landing Page
+            </a>
+            <a 
+              href="/dashboard" 
+              className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-medium py-4 px-6 rounded-lg transition-all duration-200 text-center"
+            >
+              📊 Dashboard
+            </a>
             <a 
               href="/search" 
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 text-lg"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-6 rounded-lg transition-colors duration-200 text-center"
             >
               🔍 Search Companies
             </a>
             <a 
               href="/api-test" 
-              className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200"
+              className="bg-green-600 hover:bg-green-700 text-white font-medium py-4 px-6 rounded-lg transition-colors duration-200 text-center"
             >
-              🚀 Test API Integration
+              🧪 API Test
             </a>
             <a 
-              href="/minimal" 
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200"
+              href="/landing-simple" 
+              className="bg-teal-600 hover:bg-teal-700 text-white font-medium py-4 px-6 rounded-lg transition-colors duration-200 text-center"
             >
-              View Ground Rules Test
+              ⚡ Simple Landing
+            </a>
+            <a 
+              href="/test" 
+              className="bg-gray-600 hover:bg-gray-700 text-white font-medium py-4 px-6 rounded-lg transition-colors duration-200 text-center"
+            >
+              🔧 Test Page
             </a>
           </div>
         </div>

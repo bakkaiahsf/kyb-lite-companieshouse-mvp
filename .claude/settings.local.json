@@ -40,7 +40,10 @@
       "Bash(git commit:*)",
       "Bash(git branch:*)",
       "Bash(git remote add:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:kyb-lite-companieshouse-mvp.vercel.app)",
+      "WebFetch(domain:kyb-lite-companieshouse-mvp-cbef102-bakkaiahsfs-projects.vercel.app)"
     ],
     "deny": []
   }
