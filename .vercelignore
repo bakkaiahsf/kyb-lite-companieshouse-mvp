@@ -1,0 +1,16 @@
+# Exclude problematic directories from Vercel deployment
+tests-disabled/
+claude-code-full-guide/
+MCP-server/
+PRPs/
+.claude/
+.serena/
+
+# Development files
+*.backup.*
+*.fixed.*
+*.minimal.*
+debug-startup.js
+run-migrations.sql
+RECOVERY_INSTRUCTIONS.md
+VALIDATION_REPORT.md
