@@ -52,6 +52,12 @@ export default function HomePage() {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
+              href="/search" 
+              className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 text-lg"
+            >
+              🔍 Search Companies
+            </a>
+            <a 
               href="/api-test" 
               className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200"
             >
@@ -63,12 +69,6 @@ export default function HomePage() {
             >
               View Ground Rules Test
             </a>
-            <button 
-              className="bg-gray-600 hover:bg-gray-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200"
-              disabled
-            >
-              Company Search (Coming Soon)
-            </button>
           </div>
         </div>
       </main>

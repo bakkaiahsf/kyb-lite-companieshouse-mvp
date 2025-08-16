@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
 interface CompanyData {
   company: {
@@ -20,19 +21,33 @@ interface CompanyData {
   }
 }
 
-export default function APITestPage() {
+function APITestContent() {
+  const searchParams = useSearchParams()
   const [companyNumber, setCompanyNumber] = useState('09422519') // Example: Apple UK
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState<CompanyData | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  const testAPI = async () => {
+  // Check for company parameter from URL
+  useEffect(() => {
+    const companyParam = searchParams.get('company')
+    if (companyParam) {
+      setCompanyNumber(companyParam)
+      // Auto-trigger API test if company is provided
+      setTimeout(() => {
+        testAPI(companyParam)
+      }, 500)
+    }
+  }, [searchParams]) // testAPI is stable, no need to include
+
+  const testAPI = async (numberToTest?: string) => {
+    const targetNumber = numberToTest || companyNumber
     setLoading(true)
     setError(null)
     setData(null)
 
     try {
-      const response = await fetch(`/api/company/${companyNumber}`)
+      const response = await fetch(`/api/company/${targetNumber}`)
       
       if (!response.ok) {
         const errorData = await response.json()
@@ -83,7 +98,7 @@ export default function APITestPage() {
               />
             </div>
             <button
-              onClick={testAPI}
+              onClick={() => testAPI()}
               disabled={loading || !companyNumber}
               className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium py-2 px-6 rounded-md transition-colors duration-200"
             >
@@ -227,5 +242,13 @@ export default function APITestPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function APITestPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+      <APITestContent />
+    </Suspense>
   )
 }
