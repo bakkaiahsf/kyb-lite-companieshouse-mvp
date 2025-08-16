@@ -1,0 +1,115 @@
+& when not (@fullScreen) {
+padding-top: (@paddingTop * 1rem);
+padding-bottom: (@paddingBottom * 1rem);
+}
+& when (@bg-type = 'image') {
+background-image: url(@bg-value);
+}
+& when (@bg-type = 'color') {
+background-color: @bg-value;
+}
+.mbr-fallback-image.disabled {
+display: none;
+}
+.mbr-fallback-image {
+display: block;
+background-size: cover;
+background-position: center center;
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+& when (@bg-type = 'video') {
+    background-image: url(@fallBackImage);
+}
+}
+.row {
+justify-content: left;
+}
+.mbr-section-title {
+color: #FFDD65;
+& when (@showColoredText) {
+    background-image: linear-gradient(90deg, currentColor 2.76%, @color2 29.66%, @color3 61%, @color4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+}
+.btn-container {
+display: flex;
+justify-content: center;
+align-items: flex-start;
+padding-top: 96px;
+@media (max-width: 991px) {
+    padding-top: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+}
+.custom-mbr-section-btn {
+padding-bottom: 0.42rem;
+@media (max-width: 991px) {
+    padding-bottom: 0;
+}
+}
+.custom-section-btn {
+height: 100%;
+background-image: linear-gradient(90deg, @color1 2.76%, @color2 29.66%, @color3 61%, @color4 99.93%);
+&::after {
+    background-image: linear-gradient(90deg, @color1 2.76%, @color2 29.66%, @color3 61%, @color4 99.93%);
+}
+.btn {
+    height: 100%;
+}
+}
+.text-container {
+max-width: 384px;
+margin-left: 40px;
+width: 100%;
+@media (max-width: 991px) {
+    margin: 26px auto 0;
+}
+}
+.mbr-text {
+color: #FFFFFF;
+@media (max-width: 991px) {
+    text-align: center !important;
+}
+}
+.text-item-container {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+width: 100%;
+margin-top: 26px;
+@media (max-width: 991px) {
+    flex-wrap: wrap;
+}
+}
+.text-item {
+display: flex;
+align-items: center;
+max-width: 48%;
+@media (max-width: 991px) {
+    max-width: 100%;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 6px;
+}
+}
+.icon-text {
+color: #FFFFFF;
+}
+.iconfont-wrapper {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-right: 10px;
+.mbr-iconfont {
+    display: block;
+    font-size: 24px;
+    color: @iconColor;
+}
+}
+.mbr-section-title, .mbr-section-btn {
+color: #FFFFFF;
+}

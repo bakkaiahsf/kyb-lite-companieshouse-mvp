@@ -86,7 +86,7 @@ export default function Dashboard() {
         {/* Welcome Section */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Welcome back!</h2>
-          <p className="text-gray-600">Here's your company intelligence overview for the last {selectedPeriod === '30days' ? '30 days' : selectedPeriod === '7days' ? '7 days' : '90 days'}.</p>
+          <p className="text-gray-600">Here&apos;s your company intelligence overview for the last {selectedPeriod === '30days' ? '30 days' : selectedPeriod === '7days' ? '7 days' : '90 days'}.</p>
         </div>
 
         {/* Key Metrics Cards */}

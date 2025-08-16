@@ -1,0 +1,80 @@
+<section data-bs-version="5.1" class="header1 bootcampm5" group="Headers" data-bg-video="{{bg.type == 'video' && bg.value.url}}" mbr-class="{
+    'mbr-fullscreen': fullScreen,
+    'mbr-parallax-background': bg.parallax}">
+
+    <mbr-parameters>
+        <header>Size</header>
+        <input type="checkbox" title="Full Screen" name="fullScreen">
+        <input type="checkbox" title="Full Width" name="fullWidth">
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="10" step="1" value="6" condition="fullScreen == false">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="10" step="1" value="6" condition="fullScreen == false">
+
+        <input type="range" inline name="textWidth" title="Width" min="8" max="12" value="12" step="1">
+        <select title="Align" name="contentAlign">
+            <option value>Left</option>
+            <option value="justify-content-center" selected>Center</option>
+            <option value="justify-content-end">Right</option>
+        </select>
+        <header>Show/Hide</header>
+        <input type="checkbox" title="Title" name="showTitle" checked>
+        <input type="checkbox" title="Colored Text" name="showColoredText" condition="showTitle" checked>
+        <input type="checkbox" title="Text" name="showText" checked>
+        <input type="checkbox" title="Features" name="showFeatures" checked>
+        <input type="range" inline name="featuresCount" title="Features Count" min="1" max="2" value="2" step="1" condition="showFeatures">
+        <input type="checkbox" title="Icons" name="showIcon" checked condition="showFeatures">
+        <input type="color" title="Icon Color" name="iconColor" value="#FFFFFF" selected condition="showIcon && showFeatures">
+        <input type="checkbox" title="Buttons" name="showButtons" checked>
+        <header>Gradient</header>
+        <input type="color" title="Color 1" name="color1" value="#E8F8F7" selected>
+        <input type="color" title="Color 2" name="color2" value="#FFFFC9" selected>
+        <input type="color" title="Color 3" name="color3" value="#A4FFFF" selected>
+        <input type="color" title="Color 4" name="color4" value="#61E8E2" selected>
+        <header>Background</header>
+        <fieldset type="background" name="bg" parallax>
+            <input type="image" title="Image" value="../_images/background1.jpg">
+            <input type="color" title="Color" value="#001817" selected>
+            <input type="video" title="Video" value="https://vimeo.com/428046504">
+        </fieldset>
+        <header condition="bg.type === 'video'">Fallback Image</header>
+        <input type="image" title="Fallback Image" value="../_images/background1.jpg" name="fallBackImage" condition="bg.type === 'video'">
+        <input type="checkbox" title="Overlay" name="overlay" condition="bg.type !== 'color'" checked>
+        <input type="color" title="Overlay Color" name="overlayColor" value="#212132" condition="overlay && bg.type !== 'color'">
+        <input type="range" inline title="Opacity" name="overlayOpacity" min="0" max="1" step="0.1" value="0.5" condition="overlay && bg.type !== 'color'">
+    </mbr-parameters>
+
+    <div class="mbr-fallback-image disabled" mbr-if="bg.type == 'video'"></div>
+    <div class="mbr-overlay" mbr-if="overlay && bg.type !== 'color'" opacity="{{overlayOpacity}}" bg-color="{{overlayColor}}"></div>
+
+    <div class mbr-class="{'container': !fullWidth, 'container-fluid': fullWidth}">
+        <div class="row {{contentAlign}}">
+            <div class="col-12 col-lg-{{textWidth}}">
+                <h2 class="mbr-section-title mbr-fonts-style align-center mb-0" data-app-selector=".mbr-section-title, .mbr-section-btn" mbr-theme-style="display-1" mbr-if="showTitle">Nexus AI: Your UK Corporate Truth Serum!</h2>
+                <div class="btn-container" mbr-if="showButtons || showFeatures || showText">
+                    <div mbr-buttons mbr-theme-style="display-4" class="mbr-section-btn custom-mbr-section-btn  align-center" mbr-if="showButtons">
+                        <div class="custom-section-btn">
+                            <a class="btn btn-primary" href="https://mobiri.se" data-app-placeholder="Type Text">Get Started Now</a>
+                        </div>
+                    </div>
+                    <div class="text-container" mbr-if="showText || showFeatures">
+                        <p class="mbr-text mbr-fonts-style mb-0" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text">Tired of playing detective with company ownership? Nexus AI serves up the real owners and hidden links, fast.</p>
+                        <div class="text-item-container" mbr-if="showFeatures">
+                            <div class="text-item">
+                                <div class="iconfont-wrapper" mbr-if="showIcon">
+                                    <span mbr-icon class="mbr-iconfont mobi-mbri-star mobi-mbri"></span>
+                                </div>
+                                <p class="icon-text mb-0 mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".icon-text">Fast</p>
+                            </div>
+                            <div class="text-item" mbr-if="featuresCount>1">
+                                <div class="iconfont-wrapper" mbr-if="showIcon">
+                                    <span mbr-icon class="mbr-iconfont mobi-mbri-bookmark mobi-mbri"></span>
+                                </div>
+                                <p class="icon-text mb-0 mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".icon-text">Easy</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
