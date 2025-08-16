@@ -3,22 +3,15 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-export default function LandingPage() {
+export default function SimpleLandingPage() {
   const router = useRouter()
 
   const handleSignIn = () => {
-    // No authentication - direct navigation to dashboard
     router.push('/dashboard')
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Background Elements - Simplified for Performance */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500/10 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-2xl"></div>
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Navigation */}
       <nav className="relative z-10 px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -26,14 +19,9 @@ export default function LandingPage() {
             <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-blue-400 rounded-lg"></div>
             <span className="text-white font-bold text-xl">Nexus AI</span>
           </div>
-          <div className="hidden md:flex space-x-8">
-            <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
-            <a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors">How it Works</a>
-            <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
-          </div>
           <button
             onClick={handleSignIn}
-            className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all duration-200 transform hover:scale-105"
+            className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all duration-200"
           >
             Sign In
           </button>
@@ -43,7 +31,6 @@ export default function LandingPage() {
       {/* Hero Section */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <div className="text-center">
-          {/* Main Title with Gradient */}
           <h1 className="text-6xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
               Nexus AI
@@ -62,7 +49,7 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <button
               onClick={handleSignIn}
-              className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold px-12 py-4 rounded-xl text-lg hover:from-yellow-500 hover:to-orange-600 transition-all duration-200 transform hover:scale-105 shadow-lg"
+              className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold px-12 py-4 rounded-xl text-lg hover:from-yellow-500 hover:to-orange-600 transition-all duration-200 shadow-lg"
             >
               Get Started Now
             </button>
@@ -123,7 +110,6 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-
     </div>
   )
 }
