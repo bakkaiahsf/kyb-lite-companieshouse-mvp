@@ -39,6 +39,8 @@
     "node_modules",
     "tests-disabled",
     "claude-code-full-guide",
-    "MCP-server"
+    "MCP-server",
+    "playwright.config.ts",
+    "*.config.ts"
   ]
 }

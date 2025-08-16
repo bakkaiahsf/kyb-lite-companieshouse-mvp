@@ -14,3 +14,7 @@ debug-startup.js
 run-migrations.sql
 RECOVERY_INSTRUCTIONS.md
 VALIDATION_REPORT.md
+
+# Test configuration files
+playwright.config.ts
+vitest.config.ts
